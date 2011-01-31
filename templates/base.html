@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Classement Colons de Catane</title>
+    <link rel="stylesheet" href="/media/css/colons.css" type="text/css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="menu">
+        <p>
+          <a href="http://localhost:8000/admin/ranking/game/add/" class='button'>Ajouter une partie</a>
+        </p>
+        <ul class="frame">
+          <li><a href="/">Total</a></li>
+          {% for y in years %}
+          <li {% if y == page %}class='highlight'{% endif %}><a href="/year/{{y}}">{{ y }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div id="content">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </body>
+</html>

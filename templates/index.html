@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+<h2>Classement {{ page }}</h2>
+<table cellspacing="0" class="frame">
+  <tr>
+    <td>Nom</td>
+    <td>Rating</td>
+    <td>% Victoire</td>
+    <td>Victoires</td>
+    <td>Parties</td>
+    <td>Score moyen</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</p>
+
+<p>
+<h2>Parties</h2>
+<table class="frame">
+  <tr>
+    <td>Date</td>
+    <td>Joueur 1</td>
+    <td>Joueur 2</td>
+    <td>Joueur 3</td>
+    <td>Joueur 4</td>
+  </tr>
+  {% for g in games %}
+  <tr>
+    <td>{{ g.play_date }}</td>
+    {% for s in g.score_set.all %}
+    <td>{{ s.player.name }} {{ s.score }}</td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+</p>
+
+{% endblock %}
+
+
+
