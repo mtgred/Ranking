@@ -9,7 +9,6 @@ def index(request, year=''):
     games = year and get_list_or_404(Game, play_date__year = year) or Game.objects.all()
     scores = year and Score.objects.filter(game__play_date__year=year) or Score.objects.all()
     players = [p for p in scores.values_list('player__name', flat=True).distinct()]
-    print players
     stats = [(p, scores.filter(player__name=p)) for p in players]
 
     ranking = []
