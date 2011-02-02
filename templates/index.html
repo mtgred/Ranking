@@ -12,14 +12,16 @@
     <td>Parties</td>
     <td>Score moyen</td>
   </tr>
+  {% for r in ranking %}
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{ r.0 }}</td>
+    <td>{{ r.1 }}</td>
+    <td>{{ r.2 }}</td>
+    <td>{{ r.3 }}</td>
+    <td>{{ r.4 }}</td>
+    <td>{{ r.5 }}</td>
   </tr>
+  {% endfor %}
 </table>
 </p>
 

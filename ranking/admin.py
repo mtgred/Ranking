@@ -7,6 +7,7 @@ class ScoreInline(admin.TabularInline):
 
 class GameAdmin(admin.ModelAdmin):
     inlines = [ScoreInline]
+    date_hierarchy = 'play_date'
 
 admin.site.register(Game, GameAdmin)
 admin.site.register(Player)

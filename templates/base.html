@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Classement Colons de Catane</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:regular,bold' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/media/css/colons.css" type="text/css">
   </head>
   <body>
@@ -10,9 +11,9 @@
           <a href="http://localhost:8000/admin/ranking/game/add/" class='button'>Ajouter une partie</a>
         </p>
         <ul class="frame">
-          <li><a href="/">Total</a></li>
+          <li {% if page == 'Total' %}class='highlight'{% endif %}><a href="/">Total</a> ({{ total }} parties)</li>
           {% for y in years %}
-          <li {% if y == page %}class='highlight'{% endif %}><a href="/year/{{y}}">{{ y }}</a></li>
+          <li {% if y.0 == page %}class='highlight'{% endif %}><a href="/year/{{ y.0 }}">{{ y.0 }}</a> ({{ y.1 }} parties)</li>
           {% endfor %}
         </ul>
       </div>
