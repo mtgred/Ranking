@@ -1,28 +1,31 @@
-DEBUG = True
+from platform import node
+
+if node() == 'ubuntu':
+    DEBUG = True
+    DATABASE_ENGINE = 'sqlite3'
+    DATABASE_NAME = '../colons.db'
+else:
+    DEBUG = True
+    DATABASE_ENGINE = 'mysql'
+    DATABASE_NAME = 'tma_colons'
+    DATABASE_USER = 'tma'
+    DATABASE_PASSWORD = 'pamathos'
+    DATABASE_HOST = 'mysql.alwaysdata.com'
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = ( ('Minh Tran', 'mtgred@gmail.com'),)
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'sqlite3',   # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'colons.db',   # Or path to database file if using sqlite3.
-        'USER': '',            # Not used with sqlite3.
-        'PASSWORD': '',        # Not used with sqlite3.
-        'HOST': '',            # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',            # Set to empty string for default. Not used with sqlite3.
-    }
-}
-
 TIME_ZONE = 'Europe/Brussels'
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-be'
+DATE_FORMAT = 'd/m/Y'
 SITE_ID = 1
 USE_I18N = False
 USE_L10N = False
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
-ADMIN_MEDIA_PREFIX = '/media/admin'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 SECRET_KEY = '#ob3v7(blqd1sg4!f4wo@zvef&5gqh6*9s^5n5choak1f__3dl'
 
@@ -41,7 +44,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'colons.urls'
-TEMPLATE_DIRS = ('templates')
+TEMPLATE_DIRS = ('../templates')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
