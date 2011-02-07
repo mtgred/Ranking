@@ -3,24 +3,13 @@
     <title>Classement Colons de Catane</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:regular,bold' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/media/css/colons.css" type="text/css">
+    {% block extra_head %}{% endblock %}
   </head>
   <body>
     <div id="container">
-      <div id="menu">
-        <p>
-          <a href="/admin/ranking/game/add/" class='button'>Ajouter une partie</a>
-        </p>
-        <ul class="frame">
-          <li {% if page == 'Total' %}class='highlight'{% endif %}><a href="/">Total</a> ({{ total }} parties)</li>
-          {% for y in years %}
-          <li {% if y.0 == page %}class='highlight'{% endif %}><a href="/year/{{ y.0 }}">{{ y.0 }}</a> ({{ y.1 }} parties)</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div id="content">
-        {% block content %}{% endblock %}
-      </div>
+      <div id="menu">{% block menu %}{% endblock %}</div>
+      <div id="content">{% block content %}{% endblock %}</div>
     </div>
+    {% block extra_body %}{% endblock %}
   </body>
 </html>

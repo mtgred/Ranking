@@ -1,20 +1,34 @@
 {% extends "base.html" %}
 
+{% block menu %}
+<p>
+  <a href="/admin/ranking/game/add/" class='button'>Ajouter une partie</a>
+</p>
+<ul class="frame">
+  <li {% if page == 'Total' %}class='highlight'{% endif %}><a href="/">Total</a> ({{ total }} parties)</li>
+  {% for y in years %}
+  <li {% if y.0 == page %}class='highlight'{% endif %}><a href="/year/{{ y.0 }}">{{ y.0 }}</a> ({{ y.1 }} parties)</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
 {% block content %}
 <p>
 <h2>Classement {{ page }}</h2>
 <table cellspacing="0" class="frame">
   <tr>
-    <td>Nom</td>
-    <td>Rating</td>
-    <td>% Victoire</td>
-    <td>Victoires</td>
-    <td>Parties</td>
-    <td>Score moyen</td>
+    <th>Nom</th>
+    <th>Rating</th>
+    <th>% Victoire</th>
+    <th>Victoires</th>
+    <th>Parties</th>
+    <th>Score moyen</th>
   </tr>
   {% for r in ranking %}
   <tr>
-    <td>{{ r.0 }}</td>
+    <td>
+      <a href="/player/{{ r.0|slugify }}">{{ r.0 }}</a>
+    </td>
     <td>{{ r.1 }}</td>
     <td>{{ r.2 }}</td>
     <td>{{ r.3 }}</td>
@@ -29,11 +43,11 @@
 <h2>Parties</h2>
 <table class="frame">
   <tr>
-    <td>Date</td>
-    <td>Joueur 1</td>
-    <td>Joueur 2</td>
-    <td>Joueur 3</td>
-    <td>Joueur 4</td>
+    <th>Date</th>
+    <th>Joueur 1</th>
+    <th>Joueur 2</th>
+    <th>Joueur 3</th>
+    <th>Joueur 4</th>
   </tr>
   {% for g in games %}
   <tr>

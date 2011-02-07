@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ player.name }}</h2>
+<div id="paper"></div>
+{% endblock %}
+
+{% block extra_body %}
+<script type="text/javascript" src="/media/js/raphael.js"></script>
+<script type="text/javascript" src="/media/js/graph.js"></script>
+{% endblock %}
