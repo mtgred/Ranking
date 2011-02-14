@@ -14,7 +14,7 @@ class Game(models.Model):
         return "%s" % (self.play_date)
 
     class Meta:
-        ordering: ['-play_date']
+        ordering = ['-play_date']
 
 class Score(models.Model):
     player = models.ForeignKey(Player)
