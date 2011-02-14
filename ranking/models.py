@@ -13,6 +13,9 @@ class Game(models.Model):
     def __unicode__(self):
         return "%s" % (self.play_date)
 
+    class Meta:
+        ordering: ['-play_date']
+
 class Score(models.Model):
     player = models.ForeignKey(Player)
     game = models.ForeignKey(Game)
