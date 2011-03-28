@@ -1,6 +1,6 @@
 from platform import node
 
-if node() == 'ubuntu':
+if node() != 'ssh':
     DEBUG = True
     DATABASE_ENGINE = 'sqlite3'
     DATABASE_NAME = '../colons.db'
@@ -19,7 +19,7 @@ MANAGERS = ADMINS
 
 TIME_ZONE = 'Europe/Brussels'
 LANGUAGE_CODE = 'fr-be'
-DATE_FORMAT = 'd/m/Y'
+DATE_FORMAT = 'Y-m-d'
 SITE_ID = 1
 USE_I18N = False
 USE_L10N = False
