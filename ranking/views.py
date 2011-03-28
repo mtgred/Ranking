@@ -29,3 +29,9 @@ def index(request, year=''):
     }
     return render_to_response('index.html', c, context_instance=RequestContext(request))
 
+def player(request, slug=''):
+    player = Player.objects.get(slug=slug)
+    c = { 'player': player, 'scores': Score.objects.filter(player=player).order_by('game__play_date') }
+    return render_to_response('player.html', c, context_instance=RequestContext(request))
+    
+

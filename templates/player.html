@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<script type="text/javascript">
+  var scores = [{% for s in scores %}{{ s.score }},{% endfor %}]
+  var dates = [{% for s in scores %}'{{ s.game.play_date }}',{% endfor %}]
+</script>
+{% endblock %}
+
+{% block content %}
+<h2>{{ player.name }}</h2>
+<div id="paper"></div>
+{% endblock %}
+
+{% block extra_body %}
+<script type="text/javascript" src="/media/js/jquery.js"></script>
+<script type="text/javascript" src="/media/js/raphael.js"></script>
+<script type="text/javascript" src="/media/js/graph.js"></script>
+{% endblock %}

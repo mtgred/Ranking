@@ -73,12 +73,12 @@ h3 {
   width: 150px;
 }
 
-tr:first-child {
+th {
   font-weight: bold;
   color: #333;
 }
 
-td {
+td, th {
   width: 85px;
   border: 1px solid #bbb;
   padding: 3px;
